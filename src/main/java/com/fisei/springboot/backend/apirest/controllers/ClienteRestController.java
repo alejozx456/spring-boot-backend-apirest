@@ -168,6 +168,8 @@ public class ClienteRestController {
 	public List<Region> listarRegiones(){
 		return clienteService.findAllRegiones();
 	}
+	
+	
 
 	
 }
