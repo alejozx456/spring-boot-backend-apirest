@@ -30,5 +30,9 @@ public interface IClienteService {
 	public void deleteFacturaById(Long id);
 	
 	public List<Producto> findProductoByNombre(String term);
+	
+	public List<Producto> findAllProducto();
+	
+	public Producto findByIdProducto(Long id);
 
 }

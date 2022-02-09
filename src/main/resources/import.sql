@@ -18,6 +18,13 @@ insert into productos(nombre,precio,create_at) values ('Mouse Logitech',60,NOW()
 insert into productos(nombre,precio,create_at) values ('Teclado HP',25,NOW());
 insert into productos(nombre,precio,create_at) values ('Ryzen 5',250,NOW());
 insert into productos(nombre,precio,create_at) values ('Nvidia RTX 2080',200,NOW());
+insert into productos(nombre,precio,create_at) values ('Monitor Panasonic',450,NOW());
+insert into productos(nombre,precio,create_at) values ('Mouse Genius',20,NOW());
+insert into productos(nombre,precio,create_at) values ('Laptop HP',1000,NOW());
+insert into productos(nombre,precio,create_at) values ('Laptop Asus Gaming',1500,NOW());
+insert into productos(nombre,precio,create_at) values ('Monitor HP HDMI',1200,NOW());
+insert into productos(nombre,precio,create_at) values ('procesador i5',270,NOW());
+insert into productos(nombre,precio,create_at) values ('procesador i7',480,NOW());
 
 
 

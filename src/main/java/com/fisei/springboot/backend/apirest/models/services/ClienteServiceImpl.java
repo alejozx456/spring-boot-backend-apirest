@@ -88,6 +88,17 @@ public class ClienteServiceImpl implements IClienteService {
 	public List<Producto> findProductoByNombre(String term) {
 		return productoDao.findByNombre(term);
 	}
+	@Override
+	@Transactional(readOnly = true)
+	public List<Producto> findAllProducto() {
+		// TODO Auto-generated method stub
+		return (List<Producto>) productoDao.findAll();
+	}
+	@Override
+	public Producto findByIdProducto(Long id) {
+		// TODO Auto-generated method stub
+		return productoDao.findById(id).orElse(null);
+	}
 	
 
 }

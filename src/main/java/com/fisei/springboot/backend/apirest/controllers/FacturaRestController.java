@@ -24,7 +24,7 @@ import com.fisei.springboot.backend.apirest.models.entity.Factura;
 import com.fisei.springboot.backend.apirest.models.entity.Producto;
 import com.fisei.springboot.backend.apirest.models.services.IClienteService;
 
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin(origins = {"http://localhost:4200","*"})
 @RestController
 @RequestMapping("/api")
 public class FacturaRestController {
@@ -55,4 +55,32 @@ public class FacturaRestController {
 		return clienteService.saveFactura(factura);
 
 }
+	@GetMapping("/productos")
+	public List<Producto> indexProducto(){
+		
+		return clienteService.findAllProducto();
+	}
+	@GetMapping("/productos/{id}")
+	@ResponseStatus(code = HttpStatus.OK)
+	public ResponseEntity<?> showProducto(@PathVariable Long id) {
+		//return clienteService.findById(id);
+		//Cliente cliente=null;
+		Producto producto=null;
+		Map<String, Object> response=new HashMap<String, Object>();
+		try {
+			 producto= clienteService.findByIdProducto(id);
+		} catch ( DataAccessException e) {
+			response.put("mensaje","Error al realizar la consulta en la base de datos");
+			response.put("error",e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+			return new ResponseEntity<Map<String, Object>>(response,HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		
+		
+		if(producto==null) {
+			response.put("mensaje","El Producto Id:".concat(id.toString().concat("no existe en la base de datos")));
+			return new ResponseEntity<Map<String, Object>>(response,HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<Producto>(producto,HttpStatus.OK);
+		
+	}
 }
